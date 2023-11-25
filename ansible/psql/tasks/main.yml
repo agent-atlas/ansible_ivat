@@ -1,16 +1,56 @@
-  - name: Create net config for ens4
-    ansible.builtin.copy:
-      src: nets2_{{ inventory_hostname }}
-      dest: /etc/network/interfaces.d/ens4.cfg
-      owner: root
-      group: root
-      mode: '0644'
-    register: enp4s2_config
+  # - name: Create net config for ens4
+  #   ansible.builtin.copy:
+  #     src: nets2_{{ inventory_hostname }}
+  #     dest: /etc/network/interfaces.d/ens4.cfg
+  #     owner: root
+  #     group: root
+  #     mode: '0644'
+  #   register: enp4s2_config
 
-  - name: Restart enp4s2
-    command:
-      /bin/bash -c "/usr/sbin/ifdown ens4 && /usr/sbin/ifup ens4"
-    when: enp4s2_config.changed
+  # - name: Restart enp4s2
+  #   command:
+  #     /bin/bash -c "/usr/sbin/ifdown ens4 && /usr/sbin/ifup ens4"
+  #   when: enp4s2_config.changed
+  - name: Run the equivalent of "apt-get update"
+    ansible.builtin.apt:
+      update_cache: yes
+
+  - name: Install and update common debs...
+    ansible.builtin.apt:
+      pkg:
+        - gnupg2
+        - apt-transport-https
+        - ca-certificates
+        - nfs-common
+        - openssl
+        - snmpd
+        - aptitude
+        - mc
+        - htop
+        - tcpdump
+        - net-tools
+        - iptables
+        - ntp
+        - ntpdate
+        - sudo
+        - iotop
+        - rsyslog
+        - curl
+        - wget
+        - rsync
+        - uuid
+        - xfsprogs
+        - bridge-utils
+        - parted
+        - psmisc
+      default_release: bullseye-backports
+      state: latest
+
+  - name: Update all packages to their latest version
+    ansible.builtin.apt:
+      name: "*"
+      default_release: bullseye-backports
+      state: latest
 
   - name: Create group postgres
     ansible.builtin.group:
@@ -35,41 +75,41 @@
       state: directory
       mode: '0750'
 
-  - name: Create volume patroni
-    community.general.lvg:
-      pvs: /dev/vdb
-      vg: psql
-      pvresize: yes
+  # - name: Create volume patroni
+  #   community.general.lvg:
+  #     pvs: /dev/vdb
+  #     vg: psql
+  #     pvresize: yes
 
-  - name: Create logic lv-psql
-    community.general.lvol:
-      vg: psql
-      lv: lv-psql
-      size: 100%VG
-      state: present
+  # - name: Create logic lv-psql
+  #   community.general.lvol:
+  #     vg: psql
+  #     lv: lv-psql
+  #     size: 100%VG
+  #     state: present
 
-  - name: Create ext4 /dev/psql/lv-psql
-    community.general.filesystem:
-      fstype: ext4
-      dev: /dev/psql/lv-psql
-      opts: -T news
-      state: present
+  # - name: Create ext4 /dev/psql/lv-psql
+  #   community.general.filesystem:
+  #     fstype: ext4
+  #     dev: /dev/psql/lv-psql
+  #     opts: -T news
+  #     state: present
 
-  - name: mount /dev/psql/lv-psql
-    ansible.posix.mount:
-      src: /dev/psql/lv-psql
-      path: /data/patroni
-      fstype: ext4
-      opts: defaults,noatime
-      state: mounted
+  # - name: mount /dev/psql/lv-psql
+  #   ansible.posix.mount:
+  #     src: /dev/psql/lv-psql
+  #     path: /data/patroni
+  #     fstype: ext4
+  #     opts: defaults,noatime
+  #     state: mounted
 
-  - name: Correct owners and rights /data/patroni
-    file:
-      path: /data/patroni
-      owner: postgres
-      group: postgres
-      state: directory
-      mode: '0750'
+  # - name: Correct owners and rights /data/patroni
+  #   file:
+  #     path: /data/patroni
+  #     owner: postgres
+  #     group: postgres
+  #     state: directory
+  #     mode: '0750'
 
   - name: Create work dir /data/patroni/patroni
     file:
@@ -93,13 +133,13 @@
 
   - name: Add Postgresql apt source list
     ansible.builtin.apt_repository:
-      repo: deb http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main
+      repo: deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main
       state: present
       filename: postgresql
 
   - name: Add timescaleDB apt source list
     ansible.builtin.apt_repository:
-      repo: deb http://packagecloud.io/timescale/timescaledb/debian/ bookworm main
+      repo: deb http://packagecloud.io/timescale/timescaledb/debian/ bullseye main
       state: present
       filename: timescaledb
 
