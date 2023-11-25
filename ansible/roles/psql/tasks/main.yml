@@ -133,7 +133,7 @@
 
   - name: Add Postgresql apt source list
     ansible.builtin.apt_repository:
-      repo: deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main
+      repo: deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main 15
       state: present
       filename: postgresql
 
