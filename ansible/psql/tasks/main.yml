@@ -49,7 +49,7 @@
   - name: Update all packages to their latest version
     ansible.builtin.apt:
       name: "*"
-      default_release: bullseye-backports
+      default_release: bullseye
       state: latest
 
   - name: Create group postgres
@@ -171,7 +171,7 @@
         - timescaledb-2-loader-postgresql-15
         - timescaledb-tools
         - timescaledb-2-postgresql-15
-      default_release: bookworm-backports
+      default_release: bullseye
       state: latest
 
   - name: Run the equivalent of "apt-get clean" as a separate step
