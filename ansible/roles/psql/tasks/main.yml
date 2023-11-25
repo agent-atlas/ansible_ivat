@@ -171,6 +171,7 @@
         - timescaledb-tools
         - timescaledb-2-postgresql-15
       default_release: bullseye
+      update_cache: yes
       state: latest
 
   - name: Run the equivalent of "apt-get clean" as a separate step
