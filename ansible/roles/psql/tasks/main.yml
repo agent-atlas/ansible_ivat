@@ -173,10 +173,11 @@
         - timescaledb-2-postgresql-15
       default_release: bullseye
       state: latest
+      update_cache: yes
       force_apt_get: yes
       install_recommends: yes
-      extra_args: "--fix-broken"
-      
+      dpkg_options: "force-confdef,force-confold"
+
   - name: Run the equivalent of "apt-get clean" as a separate step
     ansible.builtin.apt:
       clean: yes
