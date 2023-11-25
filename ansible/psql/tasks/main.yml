@@ -43,7 +43,7 @@
         - bridge-utils
         - parted
         - psmisc
-      default_release: bullseye-backports
+      default_release: bullseye
       state: latest
 
   - name: Update all packages to their latest version
