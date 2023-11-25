@@ -167,9 +167,9 @@
         - keepalived
         - patroni
         - haproxy
-        - timescaledb-2-loader
+        - timescaledb-2-loader-postgresql-15
         - timescaledb-tools
-        - timescaledb-2
+        - timescaledb-2-postgresql-15
       default_release: bullseye
       state: latest
 
