@@ -1,0 +1,6 @@
+---
+- hosts: psql
+  vars:
+    ansible_shell_executable: /bin/bash
+  roles:
+    - psql
