@@ -1,0 +1,20 @@
+[Unit]
+Description=Postgresql Exporter service
+After=network.target auditd.service
+ConditionPathExists=/usr/bin/postgres_exporter
+
+[Service]
+EnvironmentFile=-/etc/patroni_env.conf
+EnvironmentFile=-/etc/postgre_exporter.env
+Type=simple
+Restart=always
+User=postgres
+Group=postgres
+ExecStart=/usr/bin/postgres_exporter --auto-discover-databases
+TimeoutSec=0
+GuessMainPID=no
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+Alias=postexporter.service

@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 9 (0x9)
+        Signature Algorithm: ecdsa-with-SHA512
+        Issuer: C=BY, ST=Minsk, O=mpt.gov.by, CN=SmartCity Root CA/emailAddress=admin@smartcity.by
+        Validity
+            Not Before: Sep  7 06:43:56 2023 GMT
+            Not After : Sep  6 06:43:56 2025 GMT
+        Subject: CN=psql.smartcity
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (384 bit)
+                pub:
+                    04:f9:b3:7c:6e:79:9e:9a:9f:3a:ed:86:2f:34:78:
+                    9b:74:8d:8d:ad:15:b1:6d:16:c2:eb:2c:0e:f6:bf:
+                    35:8f:b4:c8:b6:39:ac:96:f5:93:64:11:52:61:5a:
+                    bc:6a:5f:bd:61:fc:91:e3:f4:b2:20:cf:c9:5e:2a:
+                    30:8f:d4:3a:e4:97:37:16:04:64:83:58:8a:c8:75:
+                    6e:59:f6:bd:63:d9:0e:08:14:ca:86:b1:57:d5:e5:
+                    9c:bd:67:62:a2:5c:2c
+                ASN1 OID: secp384r1
+                NIST CURVE: P-384
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                SmartCity Certificate
+            X509v3 Subject Key Identifier: 
+                46:29:57:F8:A4:D2:2F:45:ED:23:84:51:CF:DB:B9:EA:5A:B9:08:B8
+            X509v3 Authority Key Identifier: 
+                DirName:/C=BY/ST=Minsk/O=mpt.gov.by/CN=SmartCity Root CA/emailAddress=admin@smartcity.by
+                serial:23:F5:55:62:23:51:A6:0D:96:E1:AC:0E:F3:C6:13:15:4A:99:5F:9A
+            X509v3 Subject Alternative Name: 
+                DNS:psql.smartcity
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://crl.smartcity/crl.crl
+    Signature Algorithm: ecdsa-with-SHA512
+    Signature Value:
+        30:65:02:30:35:1e:5f:84:af:e5:63:1e:68:31:40:4d:c9:2d:
+        93:5d:07:8f:45:45:20:ad:54:29:bb:c2:0a:1c:30:31:2f:cc:
+        95:9d:ce:64:56:b7:21:18:97:42:65:85:9f:0c:70:4e:02:31:
+        00:c1:e1:d6:77:ff:4a:dd:3e:89:c7:79:db:dd:7f:08:57:66:
+        24:c3:d6:03:0c:ec:fc:45:b5:7d:98:51:ea:47:a9:9e:4f:5b:
+        22:07:c0:41:a5:ab:6e:9f:fe:37:8e:fa:43
+-----BEGIN CERTIFICATE-----
+MIIC8TCCAnegAwIBAgIBCTAKBggqhkjOPQQDBDBxMQswCQYDVQQGEwJCWTEOMAwG
+A1UECAwFTWluc2sxEzARBgNVBAoMCm1wdC5nb3YuYnkxGjAYBgNVBAMMEVNtYXJ0
+Q2l0eSBSb290IENBMSEwHwYJKoZIhvcNAQkBFhJhZG1pbkBzbWFydGNpdHkuYnkw
+HhcNMjMwOTA3MDY0MzU2WhcNMjUwOTA2MDY0MzU2WjAZMRcwFQYDVQQDDA5wc3Fs
+LnNtYXJ0Y2l0eTB2MBAGByqGSM49AgEGBSuBBAAiA2IABPmzfG55npqfOu2GLzR4
+m3SNja0VsW0WwussDva/NY+0yLY5rJb1k2QRUmFavGpfvWH8keP0siDPyV4qMI/U
+OuSXNxYEZINYish1bln2vWPZDggUyoaxV9XlnL1nYqJcLKOCATkwggE1MAkGA1Ud
+EwQCMAAwJAYJYIZIAYb4QgENBBcWFVNtYXJ0Q2l0eSBDZXJ0aWZpY2F0ZTAdBgNV
+HQ4EFgQURilX+KTSL0XtI4RRz9u56lq5CLgwgZgGA1UdIwSBkDCBjaF1pHMwcTEL
+MAkGA1UEBhMCQlkxDjAMBgNVBAgMBU1pbnNrMRMwEQYDVQQKDAptcHQuZ292LmJ5
+MRowGAYDVQQDDBFTbWFydENpdHkgUm9vdCBDQTEhMB8GCSqGSIb3DQEJARYSYWRt
+aW5Ac21hcnRjaXR5LmJ5ghQj9VViI1GmDZbhrA7zxhMVSplfmjAZBgNVHREEEjAQ
+gg5wc3FsLnNtYXJ0Y2l0eTAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8vY3JsLnNt
+YXJ0Y2l0eS9jcmwuY3JsMAoGCCqGSM49BAMEA2gAMGUCMDUeX4Sv5WMeaDFATckt
+k10Hj0VFIK1UKbvCChwwMS/MlZ3OZFa3IRiXQmWFnwxwTgIxAMHh1nf/St0+icd5
+291/CFdmJMPWAwzs/EW1fZhR6kepnk9bIgfAQaWrbp/+N476Qw==
+-----END CERTIFICATE-----

@@ -1,0 +1,30 @@
+vrrp_script chk_haproxy {
+    script "/usr/bin/systemctl is-active haproxy"
+    interval 2
+}
+
+vrrp_instance VI_1 {
+    state       SLAVE
+
+    interface   ens3
+
+    virtual_router_id 11
+    priority 150
+    advert_int  1
+    unicast_src_ip 192.168.182.71
+    unicast_peer {
+        192.168.182.72
+        192.168.182.73
+    }
+    authentication {
+        auth_type PASS
+        auth_pass vsimSar5r2d
+    }
+    virtual_ipaddress {
+        192.168.182.70
+    }
+    track_script {
+        chk_haproxy
+    }
+    notify /etc/keepalived/keep_manager.sh
+}
