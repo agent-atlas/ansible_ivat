@@ -151,8 +151,7 @@
     ansible.builtin.apt:
       pkg:
         - postgresql
-        - postgresql-jsquery
-        - postgresql-powa
+        - postgresql-contrib
         - etcd-server
         - etcd-client
         - python3-cdiff
