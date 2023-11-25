@@ -150,9 +150,9 @@
   - name: Install and update psql debs...
     ansible.builtin.apt:
       pkg:
-        - postgresql-15
-        - postgresql-15-jsquery
-        - postgresql-15-powa
+        - postgresql
+        - postgresql-jsquery
+        - postgresql-powa
         - etcd-server
         - etcd-client
         - python3-cdiff
@@ -168,9 +168,9 @@
         - keepalived
         - patroni
         - haproxy
-        - timescaledb-2-loader-postgresql-15
+        - timescaledb-2-loader
         - timescaledb-tools
-        - timescaledb-2-postgresql-15
+        - timescaledb-2
       default_release: bullseye
       state: latest
 
