@@ -146,10 +146,10 @@
   - name: Run "apt-get update"
     ansible.builtin.apt:
       update_cache: yes
-      
+
   - name: Install postgresql
     apt:
-      name: postgresql
+      name: postgresql-15
       update_cache: yes
     notify:
       - Enable Postgresql
