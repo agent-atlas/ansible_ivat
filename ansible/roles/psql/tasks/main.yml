@@ -176,9 +176,7 @@
         - timescaledb-tools
         - timescaledb-2-postgresql-15
       default_release: bullseye
-      update_cache: yes
       state: latest
-      install_recommends: yes
 
   - name: Run the equivalent of "apt-get clean" as a separate step
     ansible.builtin.apt:
